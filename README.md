@@ -1,76 +1,182 @@
 # Construction Safety Advisor
 
-AI-powered safety advisor for construction sites using LangChain and Claude API.
+AI-powered safety advisor for construction sites using LangGraph and the Google Gemini API. Because apparently humans keep building giant metal death traps and then acting surprised when safety matters.
+
+---
 
 ## 🌐 Live Demo
 
-[Try it online](link-after-deployment)
+🚀 [Try it Online](https://construction-safety-advisor-abhigyan.streamlit.app)
 
-## Key Features
+---
 
-✅ Worker Safety Assessment — Risk evaluation based on profile  
-✅ Hazard Identification — Site-specific hazard mitigation  
-✅ Emergency Protocols — Step-by-step incident response  
-✅ Multi-turn Conversation — Context-aware dialogue  
-✅ Tool-Calling Agent — Claude with specialized functions  
+## ✨ Key Features
 
-## Tech Stack
+- ✅ **Worker Safety Assessment**  
+  Risk evaluation based on worker profile, experience, and task type.
 
-- LangChain (agent framework)
-- Claude 3.5 Sonnet (LLM)
-- Streamlit (UI)
-- Python 3.8+
+- ✅ **Hazard Identification**  
+  Site-specific hazard detection and mitigation recommendations.
 
-## Setup
+- ✅ **Emergency Protocols**  
+  Step-by-step emergency response guidance for critical situations.
 
-### 1. Install
+- ✅ **Multi-turn Conversations**  
+  Context-aware AI interaction using conversational memory.
+
+- ✅ **Tool-Calling Agent**  
+  Gemini-powered agent integrated with specialized safety tools.
+
+---
+
+## 🛠️ Tech Stack
+
+- **LangGraph** & **LangChain** — Agent workflow framework  
+- **Google Gemini 3.5 Flash** — Large Language Model  
+- **Streamlit** — Frontend UI  
+- **Python 3.8+**
+
+---
+
+## 📂 Project Structure
+
+```bash
+├── app.py                     # Streamlit frontend
+├── safety_advisor.py          # Main AI safety agent
+├── tools.py                   # Specialized safety tools
+├── requirements.txt           # Project dependencies
+├── .env                       # API key configuration
+└── README.md                  # Project documentation
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/construction-safety-advisor.git
+cd construction-safety-advisor
+```
+
+### 2️⃣ Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Add API Key
-Create `.env`:
-```bash
-ANTHROPIC_API_KEY=your_key_from_console.anthropic.com
+### 3️⃣ Add Your API Key
+
+Create a `.env` file in the root directory:
+
+```env
+GOOGLE_API_KEY=your_key_from_aistudio.google.com
 ```
-### 3. Run Locally
+
+> Important: Add `.env` to your `.gitignore` file so your API key does not end up publicly displayed for the entire internet to harvest like abandoned copper wiring.
+
+---
+
+## ▶️ Run Locally
+
 ```bash
 streamlit run app.py
 ```
 
-### 4. Deploy to Streamlit Cloud
+---
+
+## ☁️ Deploy to Streamlit Cloud
+
 ```bash
-git push
-# Go to streamlit.io/cloud
-# Add ANTHROPIC_API_KEY to secrets
-# Deploy
+git push origin main
 ```
 
-## How It Works
+Then:
 
-Claude AI agent with 3 tools:
-1. `assess_worker_safety()` — Risk scoring
-2. `identify_site_hazards()` — Hazard mitigation
-3. `get_emergency_protocol()` — Emergency steps
+1. Open **Streamlit Community Cloud**
+2. Select your repository
+3. Go to **App Settings → Secrets**
+4. Add:
 
-## Example
-User: "Is it safe for a 23-year-old electrician with 6 months experience on high voltage?"
-Advisor: Risk Score: 72/100 (HIGH)
+```env
+GOOGLE_API_KEY="your_api_key_here"
+```
+
+5. Save and Deploy
+
+---
+
+## 🧠 How It Works
+
+The application uses a **LangGraph ReAct Agent** powered by **Google Gemini** with three specialized safety tools:
+
+### 🔹 `assess_worker_safety()`
+- Calculates worker risk score
+- Evaluates experience level
+- Provides safety recommendations
+
+### 🔹 `identify_site_hazards()`
+- Detects construction site hazards
+- Covers:
+  - Falls
+  - Fire hazards
+  - Electrical risks
+  - Equipment dangers
+
+### 🔹 `get_emergency_protocol()`
+- Generates emergency response procedures
+- Handles:
+  - Injuries
+  - Fires
+  - Chemical spills
+  - Electrical incidents
+
+---
+
+## 💬 Example Interaction
+
+### User Input
+
+```text
+Is it safe for a 23-year-old electrician with 6 months experience working on high voltage systems?
+```
+
+### AI Response
+
+```text
+Risk Score: 72/100 (HIGH)
+
 Recommendations:
+- Intensive safety training
+- Assigned mentor supervision
+- Mandatory PPE usage
+- Daily safety briefings
+- Restricted high-risk assignments initially
+```
 
-Intensive safety training
-Assigned mentor for all tasks
-Mandatory PPE
-Regular safety briefings
-Limited initial assignments
+---
 
-## Future Improvements
+## 🚀 Future Improvements
 
 - OSHA database integration
-- Incident tracking
+- Incident tracking dashboard
 - Real-time hazard detection
-- Mobile app
+- Voice-enabled assistant
+- Mobile application support
+- Worker analytics and reporting
 
-## License
+---
 
-MIT
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Abhigyan Varma**
+
+- GitHub: https://github.com/Abhigyanv23
+- LinkedIn: https://www.linkedin.com/in/abhigyan-varma-199074293
