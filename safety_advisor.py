@@ -189,7 +189,18 @@ class SafetyAdvisor:
         
         response = self.agent.invoke({"messages": messages})
         
-        assistant_message = response["messages"][-1].content
+        raw_content = response["messages"][-1].content
+        
+        # Parse the structured dictionary list into a clean string
+        if isinstance(raw_content, list):
+            assistant_message = ""
+            for block in raw_content:
+                if isinstance(block, dict) and "text" in block:
+                    assistant_message += block["text"]
+                elif isinstance(block, str):
+                    assistant_message += block
+        else:
+            assistant_message = str(raw_content)
         
         self.chat_history.append(HumanMessage(content=user_message))
         self.chat_history.append(AIMessage(content=assistant_message))

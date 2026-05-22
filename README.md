@@ -4,7 +4,7 @@ AI-powered safety advisor for construction sites using LangChain and Claude API.
 
 ## 🌐 Live Demo
 
-[Try it online](link-after-deployment)
+[Try it online](https://construction-safety-advisor-abhigyan.streamlit.app)
 
 ## Key Features
 
