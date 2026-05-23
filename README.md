@@ -6,17 +6,30 @@ AI-powered safety advisor for construction sites using LangGraph and the Google 
 
 ## 🌐 Live Demo
 
-[Try it online](link-after-deployment)
+🚀 [Try it Online](https://construction-safety-advisor-abhigyan.streamlit.app)
 
-## Key Features
+---
 
-✅ Worker Safety Assessment — Risk evaluation based on profile  
-✅ Hazard Identification — Site-specific hazard mitigation  
-✅ Emergency Protocols — Step-by-step incident response  
-✅ Multi-turn Conversation — Context-aware dialogue  
-✅ Tool-Calling Agent — Claude with specialized functions  
+## ✨ Key Features
 
-## Tech Stack
+- ✅ **Worker Safety Assessment**  
+  Risk evaluation based on worker profile, experience, and task type.
+
+- ✅ **Hazard Identification**  
+  Site-specific hazard detection and mitigation recommendations.
+
+- ✅ **Emergency Protocols**  
+  Step-by-step emergency response guidance for critical situations.
+
+- ✅ **Multi-turn Conversations**  
+  Context-aware AI interaction using conversational memory.
+
+- ✅ **Tool-Calling Agent**  
+  Gemini-powered agent integrated with specialized safety tools.
+
+---
+
+## 🛠️ Tech Stack
 
 - **LangGraph** & **LangChain** — Agent workflow framework  
 - **Google Gemini 3.5 Flash** — Large Language Model  
