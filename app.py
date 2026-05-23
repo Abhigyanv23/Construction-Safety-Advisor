@@ -74,22 +74,24 @@ for message in st.session_state.chat_history:
 
 st.divider()
 
-# Use session state to cleanly populate input if an example button is clicked
-default_input = st.session_state.pop("user_input", "")
-user_input = st.text_input("Ask a safety question...", value=default_input)
+# Use session state to capture if an example button was clicked
+button_prompt = st.session_state.pop("user_input", None)
 
-if user_input:
+# Use Streamlit's dedicated chat input which auto-clears!
+chat_prompt = st.chat_input("Ask a safety question...")
+
+# The actual prompt is either the button click OR the typed chat
+active_prompt = button_prompt or chat_prompt
+
+if active_prompt:
     with st.chat_message("user"):
-        st.markdown(user_input)
+        st.markdown(active_prompt)
     
     with st.spinner("🤔 Analyzing..."):
-        response = st.session_state.advisor.chat(user_input)
+        response = st.session_state.advisor.chat(active_prompt)
     
-    st.session_state.chat_history.append({"role": "user", "content": user_input})
+    st.session_state.chat_history.append({"role": "user", "content": active_prompt})
     st.session_state.chat_history.append({"role": "assistant", "content": response})
-    
-    with st.chat_message("assistant"):
-        st.markdown(response)
     
     st.rerun()
 
